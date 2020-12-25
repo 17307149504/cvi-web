@@ -19,7 +19,14 @@
       <h3>实体识别结果</h3>
       <div class="results">
         <span v-for="(item,index) in entityRecognitionResult" :key="index" :class="item.isEntity ? 'span-entity' : 'span-notentity'">
-          {{item.str}}
+          <el-popover
+            placement="top-start"
+            width="200"
+            trigger="hover"
+            :content="item.label" v-if="item.isEntity">
+            <span slot="reference">{{item.str}}</span>
+          </el-popover>
+          <span v-else>{{item.str}}</span>
         </span>
       </div>
       <h3>中文分词结果</h3>
@@ -33,6 +40,7 @@
 </template>
 
 <script>
+import {nerPost} from '../../api/common'
 export default {
   data() {
     return {
@@ -41,9 +49,11 @@ export default {
         {
           str: '奥迪',
           isEntity: true,
+          label: 'label1'
         },{
           str: '是辆车',
           isEntity: false,
+          label: 'label2'
         }
       ],
       segmentationResult: [
@@ -67,8 +77,12 @@ export default {
     
   },
   methods: {
-    startRecognition() {
+    async startRecognition() {
       // 这里开始识别，获取到输入的文本。
+      let res = await nerPost({
+        text: this.textarea
+      });
+      console.log(res);
     }
   }
 };
@@ -77,6 +91,7 @@ export default {
 <style scoped>
 .span-entity {
   color: blue;
+  cursor: pointer;
 }
 .results{
   border: 1px solid #ccc;

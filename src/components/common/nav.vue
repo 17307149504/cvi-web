@@ -9,8 +9,8 @@
             @select="handleSelect"
         >
             <el-menu-item index="/">实体识别</el-menu-item>
-            <el-menu-item index="/entityQuery">实体查询</el-menu-item>
-            <el-menu-item index="/relationalQuery">关系查询</el-menu-item>
+            <!-- <el-menu-item index="/entityQuery">实体查询</el-menu-item>
+            <el-menu-item index="/relationalQuery">关系查询</el-menu-item> -->
             <el-menu-item index="/quiz">知识问答</el-menu-item>
         </el-menu>
     </div>

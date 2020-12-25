@@ -2,7 +2,7 @@
   <div class="content-box">
     <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/' }"><i class="el-icon-s-home"></i> 首页</el-breadcrumb-item>
-      <el-breadcrumb-item><i class="el-icon-link"></i> 关系查询</el-breadcrumb-item>
+      <el-breadcrumb-item><i class="el-icon-link"></i> 知识问答</el-breadcrumb-item>
     </el-breadcrumb>
     <div class="input-box">
       <h3>问题描述</h3>
@@ -50,7 +50,6 @@ methods: {
 },
 components: {
   'relation-map': relationMap,
-
 }
 }
 </script>
